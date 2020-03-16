@@ -107,22 +107,13 @@ fn write_output(
     write!(&mut buffer, "{}", indent).unwrap();
 
     let mut instr_color = ColorSpec::new();
-    instr_color
-        .set_intense(true)
-        .set_fg(Some(Color::Blue))
-        .set_bold(true);
+    instr_color.set_fg(Some(Color::Blue));
     let mut label_color = ColorSpec::new();
-    label_color
-        .set_intense(true)
-        .set_fg(Some(Color::Green))
-        .set_bold(true);
+    label_color.set_fg(Some(Color::Green));
     let comment_color = ColorSpec::new();
     let instr_arg_color = ColorSpec::new();
     let mut rust_color = ColorSpec::new();
-    rust_color
-        .set_intense(true)
-        .set_fg(Some(Color::Red))
-        .set_bold(true);
+    rust_color.set_fg(Some(Color::Red));
     let instr_call_arg_color = rust_color.clone();
 
     fn debug_mode_format(mut buffer: &mut Buffer, loc: Option<asm::ast::Loc>) {
@@ -342,10 +333,7 @@ pub fn print(
         };
 
         let mut rust_color = ColorSpec::new();
-        rust_color
-            .set_intense(true)
-            .set_fg(Some(Color::Red))
-            .set_bold(true);
+        rust_color.set_fg(Some(Color::Red));
 
         let bufwtr = if opts.use_colors() {
             BufferWriter::stdout(ColorChoice::Auto)
@@ -418,10 +406,7 @@ pub fn write_error(msg: &str) {
     use std::io::Write;
     use termcolor::{BufferWriter, Color, ColorChoice, ColorSpec, WriteColor};
     let mut error_color = ColorSpec::new();
-    error_color
-        .set_intense(true)
-        .set_fg(Some(Color::Red))
-        .set_bold(true);
+    error_color.set_fg(Some(Color::Red));
 
     let bufwtr = if opts.use_colors() {
         BufferWriter::stderr(ColorChoice::Auto)
